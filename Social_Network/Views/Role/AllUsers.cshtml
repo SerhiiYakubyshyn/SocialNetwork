@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
+
+@{
+    ViewData["Title"] = "AllUsers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>AllUsers</h1>
+
+<table class="table">
+    @foreach (var u in Model)
+    {
+    <tr>
+        <td>  @u.Email </td>
+        @if (User.IsInRole("admin") || User.IsInRole("moderator"))
+        {
+            <td>@Html.ActionLink("Add role", "AddRoleToUser", "Role", new { id = u.Id })</td>
+
+        }
+        @if(User.Identity.IsAuthenticated)
+        {
+            <td>@Html.ActionLink("Send message", "DialogChat", "Chat", new { id = u.Id })</td>
+
+        }
+    </tr>
+    }
+</table>
+
+@section footer
+{
+}
