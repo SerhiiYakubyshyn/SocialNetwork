@@ -8,8 +8,12 @@ using System.Threading.Tasks;
 
 namespace BuisnesLogicLayer.DTOModels
 {
-    public class UserProfilesDTO : IdentityUser//to do del
+    public class UserProfilesDTO
     {
+        [Required]
+        public int Id { get; set; }
+        [Required]
+        public string Name { get; set; }
         [Required]
         public string LastName { get; set; }
         [Required]
@@ -24,5 +28,13 @@ namespace BuisnesLogicLayer.DTOModels
         public IEnumerable<MessageDTO> Messages { get; set; }
         public IEnumerable<PostDTO> Posts { get; set; }
         public IEnumerable<GroupDTO> Groups { get; set; }
+        [Required]
+        public string Email { get; set; }
+        [Required]
+        public string UserName { get; set; }
+        [Required]
+        public string Password { get; set; }
+        [Required]
+        public string PhoneNumber { get; set; }
     }
 }
