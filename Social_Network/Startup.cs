@@ -31,16 +31,8 @@ namespace Social_Network
             services.AddMvc();
             ConfigurationBLL.AddDependecy(services,Configuration);
             services.AddScoped<IServices, MainService>();
-            //services.AddScoped<ISocialNetworkConfiguration, ConfigurationBLL>();
-            //services.AddTransient<ConfigurationBLL>();
-            
-            //services.AddTransient(ConfigurationBLL.AddDependecy());
-
-            //services.AddIdentity<DataLayer.Models.UserProfiles, Microsoft.AspNetCore.Identity.IdentityRole>().AddEntityFrameworkStores<DataLayer.Data.SocialNetworkContext>();
             services.AddSignalR();
             services.AddControllers().AddJsonOptions(o => o.JsonSerializerOptions.PropertyNamingPolicy = null);
-            
-            //services.AddDbContext(Configuration.GetConnectionString("DefaultConnection"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

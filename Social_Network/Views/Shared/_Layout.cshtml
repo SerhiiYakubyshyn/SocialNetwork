@@ -5,26 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Social_Network</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    @*<link rel="stylesheet" href="~/css/site.css" />*@
+    <link rel="stylesheet" href="~/css/network.css" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Social_Network</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+
+        <nav class="navbar navbar-expand" aria-label="Second navbar example">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+
+                <div class="collapse navbar-collapse" id="navbarsExample02">
+                    <ul class="navbar-nav">
+ 
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item, margin_li">
+                                @Html.ActionLink(User.Identity.Name, "ShowProfile", "Profile", new { @class = "nav-link" })
+                            </li>
+                            <li class="nav-item, margin_li">
+                                @Html.ActionLink("Log Out", "Logout", "Account", new { @class = "nav-link" })
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item, margin_li">
+                                @Html.ActionLink("Register", "Register", "Account", new { @class = "nav-link" })
+                            </li>
+                            <li class="nav-item, margin_li">
+                                @Html.ActionLink("Log In", "Login", "Account", new { @class = "nav-link" })
+                            </li>
+                        }
+
+                        @if (User.IsInRole("admin"))
+                        {
+                            <li class="nav-item, margin_li">
+                                @Html.ActionLink("Create Role", "CreateRole", "Role")
+                            </li>
+                        }
+                        @*@if (User.Identity.IsAuthenticated)
+                        {
+
+                            <li class="nav-item">
+                               @Html.ActionLink("All Users", "AllUsers", "Role")
+                            </li>
+                        }
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                            @Html.ActionLink("Chat", "MainChat", "Chat", new { @class = "nav-link" })
+                        </li>*@
                     </ul>
+                    @*<form>
+                        <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                    </form>*@
                 </div>
             </div>
         </nav>
@@ -35,9 +69,9 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - Social_Network - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer>
+        <div>
+            &copy; 2021 - Serhii Yakubyshyn
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

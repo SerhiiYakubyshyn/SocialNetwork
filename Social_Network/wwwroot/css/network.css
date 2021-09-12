@@ -1,0 +1,32 @@
+﻿header {
+    font-family: Georgia, serif;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    background-color: #00CED1;
+    /*background-image: URL(https://png.pngtree.com/thumb_back/fw800/background/20201030/pngtree-teal-green-hexagonal-technology-background-image_450559.jpg);*/
+    color: #000000;
+    background-size: cover;
+}
+
+footer {
+    font-family: Georgia, serif;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    background-color: #008080;
+    background-image: URL(https://png.pngtree.com/thumb_back/fw800/background/20201030/pngtree-teal-green-hexagonal-technology-background-image_450559.jpg);
+    color: #000000;
+    background-size: cover;
+}
+
+body {
+    font-family: Times New Roman, sans-serif;
+    background-color: #9ae5e5;
+    margin: 100px;
+    background-image: URL(https://static4.depositphotos.com/1007682/324/v/600/depositphotos_3248635-stock-illustration-abstract-turquoise-background-vector.jpg);
+    background-size: cover;
+}
+.margin_li {
+    margin-left: 20px;
+}
